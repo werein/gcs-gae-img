@@ -6,7 +6,8 @@ import json
 
 class Main(webapp2.RequestHandler):
     def get(self):
-        self.redirect('/')
+        self.response.headers['Content-Type'] = 'application/json'
+        self.response.out.write(json.dumps({ 'status': 'ok' }))
 
 class Image(webapp2.RequestHandler):
     def get(self):
